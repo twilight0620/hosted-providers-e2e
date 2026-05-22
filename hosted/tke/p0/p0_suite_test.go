@@ -51,8 +51,7 @@ var _ = ReportAfterEach(func(report SpecReport) { Qase(testCaseID, report) })
 func p0UpgradeK8sVersionChecks(c *management.Cluster, client *rancher.Client, name string) {
 	helpers.ClusterIsReadyChecks(c, client, name)
 
-	// tke upgrade k8s version to 1.34.1 is not available yet, it should change to false when it is ready.
-	upgradeTo, err := tkehelper.GetK8sVersion(client, true)
+	upgradeTo, err := tkehelper.GetK8sVersion(client, false)
 	Expect(err).To(BeNil())
 	GinkgoLogr.Info(fmt.Sprintf("Upgrading TKE cluster to version %s", upgradeTo))
 
