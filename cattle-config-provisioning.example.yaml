@@ -134,7 +134,7 @@ cceClusterConfig:
   name: ""
   labels:
   flavor: "cce.s1.small"
-  version: "v1.31"
+  version: "v1.36"
   description: "provisioning test"
   hostNetwork:
     vpcID: ""

@@ -321,10 +321,12 @@ func ListCCEAllVersions(client *rancher.Client) (allVersions []string, err error
 		return
 	}
 
-	allVersions = []string{"v1.33", "v1.32", "v1.31"}
+	allVersions = []string{"v1.36", "v1.35", "v1.34"}
 
 	switch {
-	case strings.Contains(serverVersion, "2.12"):
+	case strings.Contains(serverVersion, "2.15"):
+		allVersions = []string{"v1.36", "v1.35", "v1.34"}
+	case strings.Contains(serverVersion, "2.14"), strings.Contains(serverVersion, "2.13"), strings.Contains(serverVersion, "2.12"):
 		allVersions = []string{"v1.33", "v1.32", "v1.31"}
 	case strings.Contains(serverVersion, "2.11"):
 		allVersions = []string{"v1.32", "v1.31", "v1.30"}
